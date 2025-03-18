@@ -42,8 +42,8 @@ export function MyChart({ diagnosis }: MyChartProps) {
   // Sort data by date to ensure correct order
   diagnosis.sort((a: DiagnosisEntry, b: DiagnosisEntry) => {
     const monthOrder: { [key: string]: number } = {
-      Jan: 1,
-      Feb: 2,
+      January: 1,
+      February: 2,
       March: 3,
       April: 4,
       May: 5,
