@@ -61,7 +61,7 @@ export function MyChart({ diagnosis }: MyChartProps) {
 
   // Extract labels and data
   const labels = diagnosis.map(
-    (entry: DiagnosisEntry) => `${entry.month}, ${entry.year}`
+    (entry: DiagnosisEntry) => `${entry.month.slice(0, 3)}, ${entry.year}`
   );
   const systolicData = diagnosis.map(
     (entry: DiagnosisEntry) => entry.blood_pressure.systolic.value
@@ -72,7 +72,7 @@ export function MyChart({ diagnosis }: MyChartProps) {
 
   return (
     <>
-      <div className="flex items-start mt-[40px] bg-[#F4F0FE] p-[19px] rounded-[12px] w-1/2 h-auto mx-auto">
+      <div className="flex items-start mt-[40px] bg-[#fff] p-[19px] rounded-[12px] w-1/2 h-auto mx-auto">
         <div className="w-[418px]">
           <div className="flex items-center justify-between w-full">
             <h2 className="text-[#072635] text-[18px] font-bold">
@@ -96,15 +96,15 @@ export function MyChart({ diagnosis }: MyChartProps) {
                   {
                     label: "Systolic",
                     data: systolicData,
-                    backgroundColor: "#E66FD2",
-                    borderColor: "#E66FD2",
+                    backgroundColor: "#5FC3D6",
+                    borderColor: "#5FC3D6",
                     borderWidth: 1,
                   },
                   {
                     label: "Diastolic",
                     data: diastolicData,
-                    backgroundColor: "#8C6FE6",
-                    borderColor: "#8C6FE6",
+                    backgroundColor: "#EC5252",
+                    borderColor: "#EC5252",
                     borderWidth: 1,
                   },
                 ],
@@ -118,6 +118,7 @@ export function MyChart({ diagnosis }: MyChartProps) {
                   },
                   y: {
                     beginAtZero: false,
+                    min: 60,
                   },
                 },
               }}
@@ -128,7 +129,7 @@ export function MyChart({ diagnosis }: MyChartProps) {
         <div className="w-[208px] flex flex-col items-start justify-center ml-[39.05px]">
           <div className="flex flex-col items-start justify-center w-full">
             <div className="flex items-center w-full">
-              <span className="w-[14px] h-[14px] rounded-full bg-[#E66FD2] border border-[#FFFFFF]"></span>
+              <span className="w-[14px] h-[14px] rounded-full bg-[#5FC3D6] border border-[#FFFFFF]"></span>
               <span className="text-[#072635] ml-[4px] text-[14px] font-normal">
                 Systolic
               </span>
@@ -154,7 +155,7 @@ export function MyChart({ diagnosis }: MyChartProps) {
             <hr className="w-full h-[1px] mt-[16px] bg-[#CBC8D4]" />
 
             <div className="flex items-center w-full mt-[19px]">
-              <span className="w-[14px] h-[14px] rounded-full bg-[#8C6FE6] border border-[#FFFFFF]"></span>
+              <span className="w-[14px] h-[14px] rounded-full bg-[#EC5252] border border-[#FFFFFF]"></span>
               <span className="text-[#072635] ml-[4px] text-[14px] font-normal">
                 Diastolic
               </span>
